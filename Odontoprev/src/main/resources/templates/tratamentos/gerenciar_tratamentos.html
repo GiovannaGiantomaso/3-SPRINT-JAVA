@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Tratamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #cce7ff, #6699cc, #336699);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 {
+            color: #336699;
+            margin-bottom: 20px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        .menu a {
+            display: block;
+            padding: 12px;
+            background: linear-gradient(to right, #336699, #6699cc);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .menu a:hover {
+            background: #1e4d7b;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .button-container {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-voltar {
+            display: block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #ff4d4d, #ff6666);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 50%;
+        }
+        .btn-voltar:hover {
+            background: #cc3333;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="https://img.icons8.com/?size=100&id=14883&format=png&color=6699CC"
+         alt="Logo Odontológica" class="logo">
+    <h2>Gerenciar Tratamentos</h2>
+    <div class="menu">
+        <a href="/tratamentos/cadastrar">Cadastrar Novo Tratamento</a>
+        <a href="/tratamentos/listar">Listar Tratamentos</a>
+    </div>
+
+    <div class="button-container">
+        <a href="javascript:history.back()" class="btn-voltar">⬅ Voltar</a>
+    </div>
+</div>
+</body>
+</html>

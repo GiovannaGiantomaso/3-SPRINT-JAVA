@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tratamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #cce7ff, #6699cc, #336699);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        h2 {
+            color: #336699;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #336699;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #336699;
+            box-shadow: 0px 0px 6px rgba(51, 102, 153, 0.5);
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button, .btn {
+            display: inline-block;
+            padding: 12px;
+            background: linear-gradient(to right, #336699, #6699cc);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        button:hover, .btn:hover {
+            background: #1e4d7b;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-voltar {
+            background: #ff6666;
+            width: 100%;
+        }
+
+        .btn-voltar:hover {
+            background: #cc3333;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Cadastrar Novo Tratamento</h2>
+    <form action="/tratamentos/salvar" method="post">
+        <div class="form-group">
+            <label>Descrição:</label>
+            <input type="text" name="descricao" required>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo:</label>
+            <input type="text" name="tipo" required>
+        </div>
+
+        <div class="form-group">
+            <label>Custo:</label>
+            <input type="number" name="custo" step="0.01" required>
+        </div>
+
+        <button type="submit">Salvar Tratamento</button>
+    </form>
+
+    <div class="button-container">
+        <a href="javascript:history.back()" class="btn btn-voltar">Voltar</a>
+    </div>
+</div>
+</body>
+</html>

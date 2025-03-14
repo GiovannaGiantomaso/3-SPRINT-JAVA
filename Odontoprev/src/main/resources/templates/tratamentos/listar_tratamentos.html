@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tratamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #cce7ff, #6699cc, #336699);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #336699;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(to right, #336699, #6699cc);
+            color: white;
+            font-size: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #cce7ff;
+            transition: 0.3s;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(to right, #336699, #6699cc);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: #1e4d7b;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Lista de Tratamentos</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+            <th>Custo (R$)</th>
+        </tr>
+        <tr th:each="tratamento : ${tratamentos}">
+            <td th:text="${tratamento.id}"></td>
+            <td th:text="${tratamento.descricao}"></td>
+            <td th:text="${tratamento.tipo}"></td>
+            <td th:text="${tratamento.custo}"></td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <a href="/tratamentos/cadastrar" class="btn">Cadastrar Novo Tratamento</a>
+        <a href="javascript:history.back()" class="btn" style="background: #ff6666;">Voltar</a>
+    </div>
+</div>
+</body>
+</html>

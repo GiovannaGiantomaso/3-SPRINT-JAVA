@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Paciente</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #cce7ff, #6699cc, #336699);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        /* Caixa do Formulário */
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* Título */
+        h2 {
+            color: #336699;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo dos campos */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #336699;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        input:focus, select:focus {
+            border-color: #336699;
+            box-shadow: 0px 0px 6px rgba(51, 102, 153, 0.5);
+        }
+
+        /* Botão de Envio */
+        button {
+            background: linear-gradient(to right, #336699, #6699cc);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1e4d7b;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botão de Voltar */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-voltar {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #ff4d4d, #ff6666);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            text-align: center;
+        }
+
+        .btn-voltar:hover {
+            background: #cc3333;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsividade */
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Cadastrar Novo Paciente</h2>
+    <form action="/pacientes/salvar" method="post">
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label>Data de Nascimento:</label>
+            <input type="date" name="data_nascimento" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gênero:</label>
+            <select name="id_genero" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="7">Feminino</option>
+                <option value="8">Masculino</option>
+                <option value="11">Outro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone:</label>
+            <input type="tel" name="telefone" pattern="\d{10,11}" placeholder="Apenas números" required>
+        </div>
+
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <h3>Endereço</h3>
+
+        <div class="form-group">
+            <label>CEP:</label>
+            <input type="text" name="cep" pattern="\d{8}" placeholder="Apenas números" required>
+        </div>
+
+        <div class="form-group">
+            <label>Número:</label>
+            <input type="text" name="numero" required>
+        </div>
+
+        <div class="form-group">
+            <label>Bairro:</label>
+            <input type="text" name="bairro" required>
+        </div>
+
+        <div class="form-group">
+            <label>Cidade:</label>
+            <input type="text" name="cidade" required>
+        </div>
+
+        <div class="form-group">
+            <label>Estado:</label>
+            <input type="text" name="estado" required>
+        </div>
+
+        <div class="form-group">
+            <label>País:</label>
+            <input type="text" name="pais" required>
+        </div>
+
+        <button type="submit">Salvar Paciente</button>
+    </form>
+
+    <div class="button-container">
+        <a href="javascript:history.back()" class="btn-voltar">⬅ Voltar</a>
+    </div>
+</div>
+</body>
+</html>

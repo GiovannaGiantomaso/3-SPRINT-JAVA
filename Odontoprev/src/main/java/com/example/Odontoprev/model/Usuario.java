@@ -2,18 +2,19 @@ package com.example.Odontoprev.model;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.Collections;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "USUARIO")
 public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "ID_USUARIO")
+    private Long idUsuario;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -22,10 +23,9 @@ public class Usuario implements UserDetails {
     private String password;
 
     @Column(nullable = false)
-    private String role; // "USER" ou "ADMIN"
+    private String role;
 
-    public Usuario() {
-    }
+    public Usuario() {}
 
     public Usuario(String username, String password, String role) {
         this.username = username;
@@ -33,12 +33,12 @@ public class Usuario implements UserDetails {
         this.role = role;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getUsername() {
@@ -67,7 +67,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList(); // Sem permissões definidas
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + this.role));
     }
 
     @Override
