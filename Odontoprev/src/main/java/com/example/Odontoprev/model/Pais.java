@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "PAIS_PACIENTE")
-public class Pais implements Serializable {
+public class Pais {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PAIS_PACIENTE")
@@ -12,11 +12,22 @@ public class Pais implements Serializable {
     @Column(name = "ID_PAIS")
     private Long id;
 
-    @Column(name = "NOME_PAIS", nullable = false, length = 100)
+    @Column(name = "NOME_PAIS", nullable = false)
     private String nome;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }

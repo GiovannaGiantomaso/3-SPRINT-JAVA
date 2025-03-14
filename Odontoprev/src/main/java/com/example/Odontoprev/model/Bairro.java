@@ -6,18 +6,42 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "BAIRRO_PACIENTE")
-@SequenceGenerator(name = "SEQ_BAIRRO_PACIENTE", sequenceName = "SEQ_BAIRRO_PACIENTE", allocationSize = 1)
 public class Bairro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_BAIRRO_PACIENTE")
+    @SequenceGenerator(name = "SEQ_BAIRRO_PACIENTE", sequenceName = "SEQ_BAIRRO_PACIENTE", allocationSize = 1)
     @Column(name = "ID_BAIRRO")
     private Long id;
 
-    @Column(name = "NOME_BAIRRO", nullable = false, length = 100)
+    @Column(name = "NOME_BAIRRO", nullable = false)
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CIDADE", nullable = false)
+    @JoinColumn(name = "ID_CIDADE", referencedColumnName = "ID_CIDADE")
     private Cidade cidade;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "CIDADE_PACIENTE")
-public class Cidade implements Serializable {
+public class Cidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_CIDADE_PACIENTE")
@@ -13,19 +13,34 @@ public class Cidade implements Serializable {
     @Column(name = "ID_CIDADE")
     private Long id;
 
-    @Column(name = "NOME_CIDADE", nullable = false, length = 100)
+    @Column(name = "NOME_CIDADE", nullable = false)
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "ID_ESTADO", nullable = false)
+    @JoinColumn(name = "ID_ESTADO", referencedColumnName = "ID_ESTADO")
     private Estado estado;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
-    public Estado getEstado() { return estado; }
-    public void setEstado(Estado estado) { this.estado = estado; }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
 }

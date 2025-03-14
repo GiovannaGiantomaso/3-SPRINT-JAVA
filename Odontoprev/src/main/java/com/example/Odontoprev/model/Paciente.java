@@ -27,6 +27,9 @@ public class Paciente implements Serializable {
     @Column(name = "EMAIL", length = 100, unique = true)
     private String email;
 
+    @Column(name = "ID_GENERO", nullable = false)
+    private Integer idGenero; // ID do gênero
+
     @ManyToOne
     @JoinColumn(name = "ID_ENDERECO", referencedColumnName = "ID_ENDERECO")
     private Endereco endereco;
@@ -69,6 +72,14 @@ public class Paciente implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getIdGenero() {
+        return idGenero;
+    }
+
+    public void setIdGenero(Integer idGenero) {
+        this.idGenero = idGenero;
     }
 
     public Endereco getEndereco() {

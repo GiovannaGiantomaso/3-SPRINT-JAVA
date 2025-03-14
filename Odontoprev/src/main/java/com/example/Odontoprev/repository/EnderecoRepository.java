@@ -2,11 +2,12 @@ package com.example.Odontoprev.repository;
 
 import com.example.Odontoprev.model.Endereco;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
-@Repository
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
 
-    Optional<Endereco> findByCep(String cep);
+    @Query("SELECT e FROM Endereco e WHERE e.cep = :cep AND e.numero = :numero AND e.bairro.id = :idBairro")
+    Optional<Endereco> findByCepAndNumeroAndBairro(@Param("cep") String cep, @Param("numero") String numero, @Param("idBairro") Long idBairro);
 }

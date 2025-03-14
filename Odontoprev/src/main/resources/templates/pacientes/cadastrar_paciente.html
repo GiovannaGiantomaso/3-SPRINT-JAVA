@@ -77,6 +77,13 @@
             transition: all 0.3s ease;
             width: 100%;
             margin-top: 10px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        button:enabled {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         button:hover {
@@ -130,7 +137,7 @@
 <body>
 <div class="container">
     <h2>Cadastrar Novo Paciente</h2>
-    <form action="/pacientes/salvar" method="post">
+    <form id="formPaciente" action="/pacientes/salvar" method="post">
         <div class="form-group">
             <label>Nome:</label>
             <input type="text" name="nome" required>
@@ -138,12 +145,12 @@
 
         <div class="form-group">
             <label>Data de Nascimento:</label>
-            <input type="date" name="data_nascimento" required>
+            <input type="date" name="dataNascimento" required>
         </div>
 
         <div class="form-group">
             <label>Gênero:</label>
-            <select name="id_genero" required>
+            <select name="idGenero" required>
                 <option value="" disabled selected>Selecione...</option>
                 <option value="7">Feminino</option>
                 <option value="8">Masculino</option>
@@ -193,12 +200,21 @@
             <input type="text" name="pais" required>
         </div>
 
-        <button type="submit">Salvar Paciente</button>
+        <button type="submit" id="btnSalvar" disabled>Salvar Paciente</button>
     </form>
 
     <div class="button-container">
         <a href="javascript:history.back()" class="btn-voltar">⬅ Voltar</a>
     </div>
 </div>
+
+<script>
+    document.getElementById("formPaciente").addEventListener("input", function () {
+        const form = this;
+        const button = document.getElementById("btnSalvar");
+        button.disabled = !form.checkValidity();
+    });
+</script>
+
 </body>
 </html>
