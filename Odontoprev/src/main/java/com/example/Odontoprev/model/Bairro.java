@@ -3,7 +3,6 @@ package com.example.Odontoprev.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
 @Entity
 @Table(name = "BAIRRO_PACIENTE")
 public class Bairro {
@@ -18,8 +17,15 @@ public class Bairro {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CIDADE", referencedColumnName = "ID_CIDADE")
+    @JoinColumn(name = "ID_CIDADE")
     private Cidade cidade;
+
+    public Bairro() {}
+
+    public Bairro(String nome, Cidade cidade) {
+        this.nome = nome;
+        this.cidade = cidade;
+    }
 
     public Long getId() {
         return id;
@@ -45,3 +51,4 @@ public class Bairro {
         this.cidade = cidade;
     }
 }
+

@@ -15,6 +15,15 @@ public class Pais {
     @Column(name = "NOME_PAIS", nullable = false)
     private String nome;
 
+    // 🔹 Construtor sem argumentos (necessário para o JPA)
+    public Pais() {}
+
+    // 🔹 Construtor correto para a criação no código
+    public Pais(String nome) {
+        this.nome = nome;
+    }
+
+    // 🔹 Getters e Setters
     public Long getId() {
         return id;
     }
@@ -31,3 +40,4 @@ public class Pais {
         this.nome = nome;
     }
 }
+

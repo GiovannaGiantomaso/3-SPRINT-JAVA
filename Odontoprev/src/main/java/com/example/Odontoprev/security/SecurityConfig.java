@@ -1,6 +1,5 @@
 package com.example.Odontoprev.security;
 
-import com.example.Odontoprev.service.UsuarioService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,7 +13,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/register", "/css/**", "/principal").permitAll()
+                        .requestMatchers("/", "/index.html", "/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
                         .requestMatchers("/pacientes/**", "/tratamentos/**").hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated()
                 )

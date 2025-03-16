@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Endereco {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ENDERECO_PACIENTE")
-    @SequenceGenerator(name = "SEQ_ENDERECO_PACIENTE", sequenceName = "SEQ_ENDERECO_PACIENTE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ENDERECO")
+    @SequenceGenerator(name = "SEQ_ENDERECO", sequenceName = "SEQ_ENDERECO", allocationSize = 1)
     @Column(name = "ID_ENDERECO")
     private Long id;
 
@@ -21,20 +21,6 @@ public class Endereco {
     @ManyToOne
     @JoinColumn(name = "ID_BAIRRO", referencedColumnName = "ID_BAIRRO", nullable = false)
     private Bairro bairro;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_CIDADE", referencedColumnName = "ID_CIDADE", nullable = false)
-    private Cidade cidade;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_ESTADO", referencedColumnName = "ID_ESTADO", nullable = false)
-    private Estado estado;
-
-    @ManyToOne
-    @JoinColumn(name = "ID_PAIS", referencedColumnName = "ID_PAIS", nullable = false)
-    private Pais pais;
-
-    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -67,28 +53,6 @@ public class Endereco {
     public void setBairro(Bairro bairro) {
         this.bairro = bairro;
     }
-
-    public Cidade getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(Cidade cidade) {
-        this.cidade = cidade;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public Pais getPais() {
-        return pais;
-    }
-
-    public void setPais(Pais pais) {
-        this.pais = pais;
-    }
 }
+
+

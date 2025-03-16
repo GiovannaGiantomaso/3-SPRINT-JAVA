@@ -16,8 +16,15 @@ public class Estado {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "ID_PAIS", referencedColumnName = "ID_PAIS")
+    @JoinColumn(name = "ID_PAIS")
     private Pais pais;
+
+    public Estado() {}
+
+    public Estado(String nome, Pais pais) {
+        this.nome = nome;
+        this.pais = pais;
+    }
 
     public Long getId() {
         return id;

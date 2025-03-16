@@ -17,8 +17,15 @@ public class Cidade {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "ID_ESTADO", referencedColumnName = "ID_ESTADO")
+    @JoinColumn(name = "ID_ESTADO")
     private Estado estado;
+
+    public Cidade() {}
+
+    public Cidade(String nome, Estado estado) {
+        this.nome = nome;
+        this.estado = estado;
+    }
 
     public Long getId() {
         return id;
@@ -44,3 +51,4 @@ public class Cidade {
         this.estado = estado;
     }
 }
+

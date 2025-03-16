@@ -29,6 +29,6 @@ public class AuthController {
     @PostMapping("/register")
     public String register(@ModelAttribute Usuario usuario) {
         usuarioService.salvarUsuario(usuario);
-        return "redirect:/login"; // Após cadastrar, redireciona para o login
+        return "redirect:/login";
     }
 }
