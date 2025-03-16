@@ -28,7 +28,6 @@ public class PacienteController {
         return "pacientes/gerenciar_pacientes";
     }
 
-
     @GetMapping("/cadastrar")
     public String cadastrarPaciente(Model model) {
         model.addAttribute("paciente", new Paciente());
@@ -45,7 +44,6 @@ public class PacienteController {
                                  @RequestParam("estado") String estado,
                                  @RequestParam("pais") String pais) {
         try {
-
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             paciente.setDataNascimento(sdf.parse(dataNascimentoStr));
 
@@ -66,29 +64,7 @@ public class PacienteController {
         }
     }
 
-    @GetMapping("/teste-inserir")
-    @ResponseBody
-    public String testeInserirPaciente() {
-        try {
-            Paciente paciente = new Paciente();
-            paciente.setNome("Paciente API");
-            paciente.setDataNascimento(new SimpleDateFormat("yyyy-MM-dd").parse("1995-06-15"));
-            paciente.setIdGenero(7);
-            paciente.setTelefone("11999999999");
-            paciente.setEmail("paciente.api@email.com");
 
-            Endereco endereco = new Endereco();
-            endereco.setId(1L);
-            paciente.setEndereco(endereco);
-
-            pacienteService.salvar(paciente);
-
-            return "✅ Paciente inserido com sucesso!";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "❌ Erro ao inserir paciente: " + e.getMessage();
-        }
-    }
     @GetMapping("/listar")
     public String listarPacientes(Model model) {
         List<Paciente> pacientes = pacienteService.listarTodos();
